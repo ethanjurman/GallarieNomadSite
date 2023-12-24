@@ -1,0 +1,81 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    <script src="./contentful.browser.min.js" defer></script>
+    <script src="./meta.js" defer></script>
+    <script src="./main.js" defer></script>
+  </head>
+  <body class="bg-dark text-white">
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-black border-bottom">
+      <a class="navbar-brand text-success" href="#"><b>Gallarie Nomad</b></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Gallarie</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About Us</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- image gallery -->
+    <div class="gallarie-nomad-carousel">
+    </div>
+
+    <!-- contact us -->
+    <div class="contact-info">
+      <div class="primary-contact-info">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2971.89905749457!2d-71.4226703878569!3d41.85199946692726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e445305db5054d%3A0x872587990594de38!2sGallerie%20Nomad!5e0!3m2!1sen!2sus!4v1703311587492!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="other-contact-info card bg-secondary border-0">
+        <div class="card-body ">
+
+          <!-- location -->
+          <div class="card text-white bg-dark mb-3">
+            <div class="card-body">
+              <div class="card-text">
+                  <div>583 Charles Street</div>
+                  <div>Providence, RI 02904</div>
+                  <div>USA</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- phone -->
+          <div class="card text-white bg-dark mb-3">
+            <div class="card-body">
+              <div class="card-text">
+                <div>Tattoo Appointment: <a href="tel:555-555-5555">555-555-5555</a></div>
+                <div>Piercing Appointment: <a href="tel:555-555-5555">555-555-5555</a></div>
+                <div>Other: <a href="tel:555-555-5555">555-555-5555</a></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- about us -->
+    <div class="gallarie-about-us-container card bg-secondary border-0">
+      <div class="gallarie-about-us-grid-container card-body">
+
+      </div>
+    </div>
+  </body>
+</html>

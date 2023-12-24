@@ -1,0 +1,69 @@
+html * {
+  font-family: 'Libre Baskerville', serif;
+}
+
+.gallarie-nomad-carousel {
+  display: flex;
+  overflow-x: scroll;
+}
+
+.gallarie-nomad-carousel > img {
+  height: 500px;
+  margin-top: 1em;
+  margin-right: 1em;
+  margin-bottom: 1em;
+}
+
+.gallarie-nomad-carousel > img:nth-child(1) {
+  margin-left: 1em;
+}
+
+.contact-info, .profile-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 1110px) {
+  .contact-info, .profile-card {
+    flex-direction: column-reverse;
+  }
+
+  .gallarie-about-us-grid-container {
+    display: block !important;
+  }
+}
+
+.contact-info > div {
+  margin: 2em;
+}
+
+.gallarie-about-us-container {
+  margin: 1em;
+}
+
+.gallarie-about-us-container * >  img {
+  margin-right: 1em;
+  height: 200px;
+  filter: grayscale(100%);
+}
+
+.bg-black {
+  background-color: black;
+}
+
+.gallerie-profile-card-container {
+  margin: 1em;
+}
+
+.gallarie-about-us-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr
+}
+
+.profile-card {
+  padding: 0px;
+  padding-right: 1em;
+  justify-content: start;
+  border-radius: 5px;
+}
