@@ -2,9 +2,30 @@ html * {
   font-family: 'Libre Baskerville', serif;
 }
 
+.gallarie-image-conatinaer {
+  display: flex;
+}
+
+.image-scroll-button {
+  height: 100%;
+  background-color: #00000000 !important;
+  border-color: #00000000 !important;
+  font-size: 6em;
+  outline: none !important;
+  box-shadow: none;
+}
+
+.image-scroll-button:hover, .image-scroll-button:active, .image-scroll-button:focus {
+  background-color: #00000000;
+  border-color: #00000000;
+  outline: none !important;
+  box-shadow: none;
+}
+
 .gallarie-nomad-carousel {
   display: flex;
   overflow-x: scroll;
+  scroll-behavior: smooth;
 }
 
 .gallarie-nomad-carousel > img {
@@ -66,4 +87,18 @@ html * {
   padding-right: 1em;
   justify-content: start;
   border-radius: 5px;
+}
+
+p {
+  margin-bottom: 0px;
+}
+
+p:empty {
+  margin: 1em;
+}
+
+.other-contact-info {
+  width: calc(100% - 200px);
+  min-width: 300px;
+  max-width: 600px;
 }

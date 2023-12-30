@@ -25,9 +25,30 @@ const buildProfileCard = (entryItem) => {
   profileArea.appendChild(descriptionCard);
 };
 
+const buildContactCard = (entryItem) => {
+  const contactArea = document.querySelector(".other-contact-block");
+
+  const contactCard = document.createElement("div");
+  contactCard.innerHTML = `
+    <div class="card text-white bg-dark mb-3">
+      <div class="card-body">
+        <div class="card-text">
+            ${documentToHtmlString(entryItem.fields.body)}
+        </div>
+      </div>
+    </div>
+  `;
+  contactArea.appendChild(contactCard);
+};
+
 Promise.all([client.getEntry("5A12U9FuNqpT2EZ0U3k54d"), client.getEntries()])
   .then(([galleryItems, ...entries]) => {
-    const bios = entries[0].items.filter((entry) => entry.name !== "Gallarie");
+    const bios = entries[0].items.filter(
+      (entry) => entry.sys.contentType.sys.id === "bio"
+    );
+    const contactBlock = entries[0].items.filter(
+      (entry) => entry.sys.contentType.sys.id === "contactBlock"
+    );
     galleryItems.fields.images.forEach((entryItem) => {
       const img = document.createElement("img");
       img.setAttribute("src", getURL(entryItem));
@@ -37,5 +58,15 @@ Promise.all([client.getEntry("5A12U9FuNqpT2EZ0U3k54d"), client.getEntries()])
     bios.forEach((entryItem) => {
       buildProfileCard(entryItem);
     });
+
+    contactBlock.forEach((entryItem) => {
+      buildContactCard(entryItem);
+    });
   })
   .catch(console.error);
+
+// JavaScript to scroll images
+function scrollImages(direction) {
+  var container = document.querySelector(".gallarie-nomad-carousel");
+  container.scrollLeft += direction * 410; // Adjust the 100 to how many pixels you want to scroll
+}
