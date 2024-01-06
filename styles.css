@@ -14,7 +14,7 @@ body {
   height: 100%;
   background-color: #00000000 !important;
   border-color: #00000000 !important;
-  font-size: 6em;
+  font-size: 6em!important;
   outline: none !important;
   box-shadow: none;
 }
@@ -30,6 +30,7 @@ body {
   display: flex;
   overflow-x: scroll;
   scroll-behavior: smooth;
+  max-width: calc(100% - 120px);
 }
 
 .gallarie-nomad-carousel > img {
@@ -61,6 +62,16 @@ body {
 
 .contact-info > div {
   margin: 2em;
+}
+
+@media screen and (max-width: 1110px) {
+  .contact-info > div {
+    margin: 1em;
+  }
+  .other-contact-info {
+    width: 100%!important;
+    margin: 1em;
+  }
 }
 
 .gallarie-about-us-container {
@@ -126,4 +137,15 @@ p:empty {
   html * {
     font-size: 1.05em!important; /* Adjust as needed */
   }
+}
+
+.primary-contact-info {
+  width: 650px;
+  height: 450px;
+  max-width: 100%!important;
+}
+
+iframe {
+  max-width: calc(100% - 40px);
+  margin: 0px 0px 0px 20px;
 }
