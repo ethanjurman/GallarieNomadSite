@@ -55,9 +55,11 @@ Promise.all([client.getEntry("5A12U9FuNqpT2EZ0U3k54d"), client.getEntries()])
       document.querySelector(".gallarie-nomad-carousel").appendChild(img);
     });
 
-    bios.forEach((entryItem) => {
-      buildProfileCard(entryItem);
-    });
+    bios
+      .sort((entryItem) => (entryItem.fields.name.includes("Josh") ? -1 : 1))
+      .forEach((entryItem) => {
+        buildProfileCard(entryItem);
+      });
 
     contactBlock.forEach((entryItem) => {
       buildContactCard(entryItem);

@@ -2,6 +2,10 @@ html * {
   font-family: 'Libre Baskerville', serif;
 }
 
+body {
+  background-color: black!important;
+}
+
 .gallarie-image-conatinaer {
   display: flex;
 }
@@ -67,6 +71,8 @@ html * {
   margin-right: 1em;
   height: 200px;
   filter: grayscale(100%);
+  border-radius: 15px;
+  padding: 10px;
 }
 
 .bg-black {
@@ -79,7 +85,8 @@ html * {
 
 .gallarie-about-us-grid-container {
   display: grid;
-  grid-template-columns: 1fr 1fr
+  grid-template-columns: 1fr 1fr;
+  padding: 10px;
 }
 
 .profile-card {
@@ -101,4 +108,16 @@ p:empty {
   width: calc(100% - 200px);
   min-width: 300px;
   max-width: 600px;
+}
+
+.group-nav-items {
+  display: flex;
+}
+
+.group-nav-items img {
+  margin: 0px 5px 0px 0px;
+  height: 1.5em;
+  width: 2em;
+
+  filter: invert(48%) sepia(79%) saturate(350%) hue-rotate(86deg) brightness(100%) contrast(119%);
 }
