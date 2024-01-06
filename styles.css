@@ -121,3 +121,9 @@ p:empty {
 
   filter: invert(48%) sepia(79%) saturate(350%) hue-rotate(86deg) brightness(100%) contrast(119%);
 }
+
+@media (max-width: 990px) {
+  html * {
+    font-size: 1.05em!important; /* Adjust as needed */
+  }
+}
