@@ -88,14 +88,15 @@ function autoScroll() {
   if (document.querySelector(".gallarie-nomad-carousel").children.length === 0) {
     // waiting to do auto scoll when there are elements in the carousel
     setTimeout(() => autoScroll(), 1000);
+    return;
   }
 
-  let autoScrollInterval;
+  let autoScrollIntervals = [];
   const scrollSpeed = 50; // Adjust the speed as needed
   let autoDirection = 1;
 
   const startAutoScroll = () => {
-    autoScrollInterval = setInterval(() => {
+    const autoScrollInterval = setInterval(() => {
       var container = document.querySelector(".gallarie-nomad-carousel");
       if (
         // container on the right edge
@@ -107,24 +108,23 @@ function autoScroll() {
       }
       container.scrollLeft = container.scrollLeft + 2 * autoDirection;
     }, scrollSpeed);
+    autoScrollIntervals.push(autoScrollInterval)
   };
 
   const stopAutoScroll = () => {
-    clearInterval(autoScrollInterval);
+    autoScrollIntervals.forEach(autoScrollInterval => clearInterval(autoScrollInterval));
   };
 
-  const imageContainers = document.querySelectorAll('.gallarie-image-container');
+  const container = document.querySelector('.gallarie-image-container');
 
-  imageContainers.forEach(container => {
-    container.addEventListener('mouseenter', () => {
-      console.log('mouse enter');
-      stopAutoScroll();
-    });
+  container.addEventListener('mouseenter', () => {
+    console.log('mouse enter');
+    stopAutoScroll();
+  });
 
-    container.addEventListener('mouseleave', () => {
-      console.log('mouse leave');
-      startAutoScroll();
-    });
+  container.addEventListener('mouseleave', () => {
+    console.log('mouse leave');
+    startAutoScroll();
   });
 
   // Start auto-scrolling by default when the page loads
