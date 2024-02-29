@@ -7,7 +7,7 @@ body {
   overflow-x: hidden;
 }
 
-.gallarie-image-conatinaer {
+.gallarie-image-container {
   display: flex;
 }
 
@@ -41,6 +41,19 @@ body {
   margin-top: 1em;
   margin-right: 1em;
   margin-bottom: 1em;
+}
+
+.img-item {
+  filter: brightness(100%);
+  transition: all 0.2s;
+}
+
+.img-item:hover {
+  filter: brightness(100%);
+}
+
+.unfocus-item {
+  filter: brightness(50%);
 }
 
 .gallarie-nomad-carousel > img:nth-child(1) {

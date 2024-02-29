@@ -1,6 +1,8 @@
 // pull the entry for the main page (you can find this in contentful, info panel)
 const mainPageEntry = "2FDoqwaVPKZiumNtdH86Ad";
 
+const imagesLoaded = false;
+
 const getURL = (entryItem) => {
   return entryItem.fields.file.url;
 };
@@ -68,7 +70,65 @@ Promise.all([client.getEntry("5A12U9FuNqpT2EZ0U3k54d"), client.getEntries()])
   .catch(console.error);
 
 // JavaScript to scroll images
-function scrollImages(direction) {
+function scrollImages(direction, amount = 410) {
   var container = document.querySelector(".gallarie-nomad-carousel");
-  container.scrollLeft += direction * 410; // Adjust the 100 to how many pixels you want to scroll
+  if (container.scrollLeft === 0 && direction < 0) {
+    // move to the end
+    container.scrollLeft = container.scrollWidth;
+    return;
+  }
+  if (container.scrollLeft === container.scrollWidth - container.clientWidth && direction > 0) {
+    container.scrollLeft = 0;
+    return;
+  }
+  container.scrollLeft += direction * amount; // Adjust the 100 to how many pixels you want to scroll
 }
+
+function autoScroll() {
+  if (document.querySelector(".gallarie-nomad-carousel").children.length === 0) {
+    // waiting to do auto scoll when there are elements in the carousel
+    setTimeout(() => autoScroll(), 1000);
+  }
+
+  let autoScrollInterval;
+  const scrollSpeed = 50; // Adjust the speed as needed
+  let autoDirection = 1;
+
+  const startAutoScroll = () => {
+    autoScrollInterval = setInterval(() => {
+      var container = document.querySelector(".gallarie-nomad-carousel");
+      if (
+        // container on the right edge
+        container.scrollLeft === container.scrollWidth - container.clientWidth ||
+        // container on the left edge
+        container.scrollLeft === 0
+      ) {
+        autoDirection = -autoDirection;
+      }
+      container.scrollLeft = container.scrollLeft + 2 * autoDirection;
+    }, scrollSpeed);
+  };
+
+  const stopAutoScroll = () => {
+    clearInterval(autoScrollInterval);
+  };
+
+  const imageContainers = document.querySelectorAll('.gallarie-image-container');
+
+  imageContainers.forEach(container => {
+    container.addEventListener('mouseenter', () => {
+      console.log('mouse enter');
+      stopAutoScroll();
+    });
+
+    container.addEventListener('mouseleave', () => {
+      console.log('mouse leave');
+      startAutoScroll();
+    });
+  });
+
+  // Start auto-scrolling by default when the page loads
+  startAutoScroll();
+}
+
+autoScroll();
