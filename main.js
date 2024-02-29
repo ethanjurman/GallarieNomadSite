@@ -17,7 +17,7 @@ const buildProfileCard = (entryItem) => {
     <div class="profile-card card-body">
       <img src="${getURL(entryItem.fields.profilePhoto)}">
       <div>
-        <h5 class="text-success card-title">${entryItem.fields.name}</h5>
+        <h5 class="text-success card-title font-chiller">${entryItem.fields.name}</h5>
         <p class="card-text">${entryItem.fields.description}</p>
       </div>
     </div>

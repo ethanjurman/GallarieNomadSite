@@ -1,5 +1,15 @@
+@font-face {
+  font-family: chiller;
+  src: url(fonts/CHILLER.TTF);
+}
+
 html * {
   font-family: "Libre Baskerville", serif;
+}
+
+.font-chiller {
+  font-family: "chiller", "Libre Baskerville", serif;
+  font-size: 2em;
 }
 
 body {
