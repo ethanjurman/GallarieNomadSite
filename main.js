@@ -58,14 +58,12 @@ Promise.all([client.getEntry("5A12U9FuNqpT2EZ0U3k54d"), client.getEntries()])
     });
 
     bios
-      .sort((entryItem) => {
-        if (entryItem.fields.name.includes("Josh")) {
-          return -1;
-        }
-        if (entryItem.fields.name.includes("Ioke")) {
-          return 2;
-        }
-        return 1;
+      .sort((a, b) => {
+        if (a.fields.name.includes("JCJGR")) return -1; // Ensure 'JCJGR' always comes first
+        if (b.fields.name.includes("JCJGR")) return 1;  // Ensure 'JCJGR' always comes first when compared
+        if (a.fields.name.includes("Ioke")) return 1; // Ensure 'Ioke' always comes last
+        if (b.fields.name.includes("Ioke")) return -1; // Ensure 'Ioke' always comes last when compared
+        return 0; // Keep the order of all other items
       })
       .forEach((entryItem) => {
         buildProfileCard(entryItem);
