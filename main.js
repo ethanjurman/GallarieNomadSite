@@ -58,7 +58,15 @@ Promise.all([client.getEntry("5A12U9FuNqpT2EZ0U3k54d"), client.getEntries()])
     });
 
     bios
-      .sort((entryItem) => (entryItem.fields.name.includes("Josh") ? -1 : 1))
+      .sort((entryItem) => {
+        if (entryItem.fields.name.includes("Josh")) {
+          return -1;
+        }
+        if (entryItem.fields.name.includes("Ioke")) {
+          return 2;
+        }
+        return 1;
+      })
       .forEach((entryItem) => {
         buildProfileCard(entryItem);
       });

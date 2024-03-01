@@ -9,12 +9,16 @@ html * {
 
 .font-chiller {
   font-family: "chiller", "Libre Baskerville", serif;
-  font-size: 2em;
+  font-size: 2.2em;
 }
 
 body {
   background-color: black !important;
   overflow-x: hidden;
+}
+
+a {
+  color: #7cbbff;
 }
 
 .gallerie-image-container {
@@ -109,9 +113,10 @@ body {
 .gallerie-about-us-container * > img {
   margin-right: 1em;
   height: 200px;
-  filter: grayscale(100%);
   border-radius: 15px;
   padding: 10px;
+  object-fit: cover;
+  width: 200px;
 }
 
 .bg-black {
@@ -165,6 +170,9 @@ p:empty {
 @media (max-width: 990px) {
   html * {
     font-size: 1.05em !important; /* Adjust as needed */
+  }
+  .font-chiller {
+    font-size: 2.05em !important; /* Adjust as needed */
   }
 }
 
