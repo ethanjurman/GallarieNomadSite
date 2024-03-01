@@ -9,7 +9,7 @@ const getURL = (entryItem) => {
 
 const buildProfileCard = (entryItem) => {
   const profileArea = document.querySelector(
-    ".gallarie-about-us-grid-container"
+    ".gallerie-about-us-grid-container"
   );
   const descriptionCard = document.createElement("div");
   descriptionCard.innerHTML = `
@@ -54,7 +54,7 @@ Promise.all([client.getEntry("5A12U9FuNqpT2EZ0U3k54d"), client.getEntries()])
     galleryItems.fields.images.forEach((entryItem) => {
       const img = document.createElement("img");
       img.setAttribute("src", getURL(entryItem));
-      document.querySelector(".gallarie-nomad-carousel").appendChild(img);
+      document.querySelector(".gallerie-nomad-carousel").appendChild(img);
     });
 
     bios
@@ -71,7 +71,7 @@ Promise.all([client.getEntry("5A12U9FuNqpT2EZ0U3k54d"), client.getEntries()])
 
 // JavaScript to scroll images
 function scrollImages(direction, amount = 410) {
-  var container = document.querySelector(".gallarie-nomad-carousel");
+  var container = document.querySelector(".gallerie-nomad-carousel");
   if (container.scrollLeft === 0 && direction < 0) {
     // move to the end
     container.scrollLeft = container.scrollWidth;
@@ -85,7 +85,7 @@ function scrollImages(direction, amount = 410) {
 }
 
 function autoScroll() {
-  if (document.querySelector(".gallarie-nomad-carousel").children.length === 0) {
+  if (document.querySelector(".gallerie-nomad-carousel").children.length === 0) {
     // waiting to do auto scoll when there are elements in the carousel
     setTimeout(() => autoScroll(), 1000);
     return;
@@ -97,7 +97,7 @@ function autoScroll() {
 
   const startAutoScroll = () => {
     const autoScrollInterval = setInterval(() => {
-      var container = document.querySelector(".gallarie-nomad-carousel");
+      var container = document.querySelector(".gallerie-nomad-carousel");
       if (
         // container on the right edge
         container.scrollLeft === container.scrollWidth - container.clientWidth ||
@@ -115,7 +115,7 @@ function autoScroll() {
     autoScrollIntervals.forEach(autoScrollInterval => clearInterval(autoScrollInterval));
   };
 
-  const container = document.querySelector('.gallarie-image-container');
+  const container = document.querySelector('.gallerie-image-container');
 
   container.addEventListener('mouseenter', () => {
     console.log('mouse enter');

@@ -1,1 +1,1 @@
-New website for the Gallarie Nomad Tattoo and Piercing Shop
+New website for the Gallerie Nomad Tattoo and Piercing Shop
