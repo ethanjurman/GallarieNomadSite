@@ -21,6 +21,15 @@ a {
   color: #7cbbff;
 }
 
+.btn-primary {
+  background: #00000000;
+  border-color: #00000000;
+}
+.btn-primary:hover {
+  background: #000000;
+  border-color: #000000;
+}
+
 .gallerie-image-container {
   display: flex;
 }
@@ -81,6 +90,10 @@ a {
   align-items: center;
 }
 
+.header-logo {
+  height: 82px;
+}
+
 @media screen and (max-width: 1110px) {
   .contact-info,
   .profile-card {
@@ -89,6 +102,10 @@ a {
 
   .gallerie-about-us-grid-container {
     display: block !important;
+  }
+
+  .header-logo {
+    height: 52px;
   }
 }
 
@@ -103,6 +120,9 @@ a {
   .other-contact-info {
     width: 100% !important;
     margin: 1em;
+  }
+  .header-logo {
+    height: 52px;
   }
 }
 
@@ -134,10 +154,83 @@ a {
 }
 
 .profile-card {
-  padding: 0px;
-  padding-right: 1em;
+  padding: 1em;
   justify-content: start;
   border-radius: 5px;
+}
+
+.profile-gallery-container {
+  overflow-y: hidden;
+  transition: all 0.5s;
+}
+.profile-gallery-container > a {
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.profile-gallery {
+  display: grid;
+  justify-items: center;
+  gap: 1px;
+  grid-template-columns: repeat(3, 1fr);
+}
+.profile-gallery > img {
+  padding: 10px;
+  object-fit: cover;
+}
+
+img.bio-instagram-link {
+  width: 1.5em;
+  height: 1.5em;
+  filter: invert(1) hue-rotate(87deg) saturate(3);
+}
+
+.gallerie-nomad-modal {
+  position: fixed;
+  left: 5%;
+  top: 95px;
+  max-width: calc(90%);
+  height: calc(100% - 105px);
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgb(0 0 0 / 0%) 100%
+  );
+  padding: 20px;
+  opacity: 0;
+  z-index: -1;
+  transition: all 0.5s;
+}
+
+.modal-background {
+  background: #000000aa;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: -1;
+}
+
+.gallerie-nomad-modal-close-button {
+  float: right;
+  color: white;
+  background: #000000;
+  border: #00000000;
+  font-size: 2em !important;
+  width: 60px;
+  margin-bottom: -60px;
+  margin-right: -5px;
+  transform: scale(1);
+  border-radius: 0px 0px 0px 30px;
+}
+
+.gallerie-nomad-modal > img {
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
 }
 
 p {

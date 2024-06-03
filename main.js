@@ -3,15 +3,39 @@ const mainPageEntry = "2FDoqwaVPKZiumNtdH86Ad";
 
 const imagesLoaded = false;
 
-const getURL = (entryItem) => {
-  return entryItem.fields.file.url;
+const getURL = (entryItem, ...options) => {
+  return entryItem.fields.file.url + '?' + options.join('&');
 };
+
+const reveal = (id) => {
+  const expanded = document.getElementById(`${id}-gallery`).style.height === '640px';
+  document.getElementById(`${id}-gallery`).style.height = expanded ? "0px" : "640px";
+}
+
+const openLarge = (url) => {
+  document.getElementById('modal-image').src = url;
+  document.querySelector('.modal-background').style.zIndex = '1';
+  document.querySelector('.modal-background').style.opacity = 1;
+  document.querySelector('.gallerie-nomad-modal').style.opacity = 1;
+  document.querySelector('.gallerie-nomad-modal').style.zIndex = '1';
+}
+
+const closeLarge = () => {
+  document.querySelector('.gallerie-nomad-modal').style.opacity = 0;
+  setTimeout(() => {
+    document.getElementById('modal-image').src = '';
+    document.querySelector('.gallerie-nomad-modal').style.zIndex = -1;
+    document.querySelector('.modal-background').style.zIndex = -1;
+    document.querySelector('.modal-background').style.opacity = 0;
+  }, 500);
+}
 
 const buildProfileCard = (entryItem) => {
   const profileArea = document.querySelector(
     ".gallerie-about-us-grid-container"
   );
   const descriptionCard = document.createElement("div");
+  const instagramLink = entryItem.fields.links && entryItem.fields.links.find(link => link.includes('instagram')) || '';
   descriptionCard.innerHTML = `
   <div class="gallerie-profile-card-container card text-white bg-dark mb-3">
     <div class="profile-card card-body">
@@ -19,6 +43,15 @@ const buildProfileCard = (entryItem) => {
       <div>
         <h5 class="text-success card-title font-chiller">${entryItem.fields.name}</h5>
         <p class="card-text">${entryItem.fields.description}</p>
+      </div>
+    </div>
+    ${entryItem.fields.images ? `<div id="${entryItem.sys.id}-button" class="btn btn-primary text-success" onclick="reveal('${entryItem.sys.id}')">${instagramLink ? 'Portfolio & Contact' : 'Images'}</div>` : ''}
+    <div id="${entryItem.sys.id}-gallery" class="profile-gallery-container" style="height: 0px;">
+      ${instagramLink ? `<a href="${instagramLink}" target="_blank" >${instagramLink.split('https://www.')[1]}</a>` : ''}
+      <div class="profile-gallery">
+        ${(entryItem.fields.images || []).map((image) => {
+    return `<img src="${getURL(image, 'w=100')}" onclick="openLarge('${image.fields.file.url}')" />`
+  }).join('')}
       </div>
     </div>
   </div>
