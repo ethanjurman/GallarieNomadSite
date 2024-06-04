@@ -8,8 +8,8 @@ const getURL = (entryItem, ...options) => {
 };
 
 const reveal = (id) => {
-  const expanded = document.getElementById(`${id}-gallery`).style.height === '640px';
-  document.getElementById(`${id}-gallery`).style.height = expanded ? "0px" : "640px";
+  const expanded = document.getElementById(`${id}-gallery`).style.maxHeight === '640px';
+  document.getElementById(`${id}-gallery`).style.maxHeight = expanded ? "0px" : "640px";
 }
 
 const openLarge = (url) => {
@@ -46,7 +46,7 @@ const buildProfileCard = (entryItem) => {
       </div>
     </div>
     ${entryItem.fields.images ? `<div id="${entryItem.sys.id}-button" class="btn btn-primary text-success" onclick="reveal('${entryItem.sys.id}')">${instagramLink ? 'Portfolio & Contact' : 'Images'}</div>` : ''}
-    <div id="${entryItem.sys.id}-gallery" class="profile-gallery-container" style="height: 0px;">
+    <div id="${entryItem.sys.id}-gallery" class="profile-gallery-container" style="max-height: 0px;">
       ${instagramLink ? `<a href="${instagramLink}" target="_blank" >${instagramLink.split('https://www.')[1]}</a>` : ''}
       <div class="profile-gallery">
         ${(entryItem.fields.images || []).map((image) => {
