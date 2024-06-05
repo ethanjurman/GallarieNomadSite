@@ -178,7 +178,7 @@ a {
 .profile-gallery > img {
   padding: 10px;
   object-fit: cover;
-  cusror: pointer;
+  cursor: pointer;
 }
 
 img.bio-instagram-link {
